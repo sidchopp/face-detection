@@ -1,6 +1,7 @@
 #tsparticles {
   position: absolute;
-  width: 100%;
+  /* To make sure the particles remain ONLY on the left image which is almost 58.33%( or 7/12) wide */
+  width: 58.33%;
   height: 100%;
   /* background-color: #0d47a1; */
   background-image: url("");
@@ -9,4 +10,18 @@
   background-position: 50% 50%;
   /* color: black; */
   z-index: +1;
+}
+
+@media only screen and (max-width: 960px) {
+  /* For tabs, so that particles say ONLY on image */
+  #tsparticles {
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  /* For Mobile, no particles are there on the log in form */
+  #tsparticles {
+    width: 0;
+  }
 }
