@@ -32,7 +32,7 @@ class MyParticles extends Component {
               value: "blue",
             },
           },
-          fpsLimit: 60,
+          fpsLimit: 30,
           interactivity: {
             detectsOn: "canvas",
             events: {
@@ -58,7 +58,7 @@ class MyParticles extends Component {
               },
               repulse: {
                 distance: 200,
-                duration: 0.4,
+                duration: 1,
               },
             },
           },
@@ -70,7 +70,7 @@ class MyParticles extends Component {
               color: "#ffffff",
               distance: 150,
               enable: true,
-              opacity: 0.5,
+              opacity: 0.4,
               width: 1,
             },
             collisions: {
@@ -81,15 +81,15 @@ class MyParticles extends Component {
               enable: true,
               outMode: "bounce",
               random: false,
-              speed: 6,
+              speed: 4,
               straight: false,
             },
             number: {
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 600,
               },
-              value: 80,
+              value: 20,
             },
             opacity: {
               value: 0.5,
