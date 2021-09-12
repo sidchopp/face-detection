@@ -15,6 +15,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 //components
 
+import MyParticles from './MyParticles';
+
+//CSS
+
+import '../App.css'
+
 function Copyright() {
   return (
 
@@ -73,7 +79,10 @@ export default function SignIn() {
       <CssBaseline />
 
       {/* For left Image */}
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+
+      <Grid item xs={false} sm={4} md={7} className={classes.image} >
+        < MyParticles className='my-particles' />
+      </Grid>
       {/* For Right form */}
 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
