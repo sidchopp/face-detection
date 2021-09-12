@@ -7,6 +7,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  color: black;
+  /* color: black; */
   z-index: +1;
 }
