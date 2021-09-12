@@ -57,6 +57,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+
+
   },
   avatar: {
     margin: theme.spacing(1),
@@ -83,12 +85,12 @@ export default function SignIn() {
       {/* For left Image */}
 
       <Grid item xs={false} sm={4} md={7} className={classes.image} >
+        < MyParticles id="tsparticles" />
 
       </Grid>
-      {/* < MyParticles className='my-particles' /> */}
       {/* For Right form */}
 
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid style={{ background: '#FFA630' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
