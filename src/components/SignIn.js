@@ -76,13 +76,16 @@ export default function SignIn() {
 
   return (
     <Grid container component="main" className={classes.root}>
+
       <CssBaseline />
+
 
       {/* For left Image */}
 
       <Grid item xs={false} sm={4} md={7} className={classes.image} >
-        < MyParticles className='my-particles' />
+
       </Grid>
+      {/* < MyParticles className='my-particles' /> */}
       {/* For Right form */}
 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
