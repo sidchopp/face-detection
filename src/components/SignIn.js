@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 //components
 
@@ -25,13 +27,18 @@ function Copyright() {
   return (
 
     <Typography variant="body2" color="textSecondary" align="center">
+
       <div>
-        <Link color="inherit" href="https://github.com/sidchopp" target="_blank">
-          Siddharth Chopra
+        <Link color="actiony" href="https://github.com/sidchopp" target="_blank">
+          <GitHubIcon />
         </Link>{' '}
+        <Link color="actiony" href="https://www.linkedin.com/in/sidchopp/" target="_blank">
+          <LinkedInIcon />
+        </Link>
       </div>
+
       <div>
-        {'Copyright © '}
+        {'Sid © '}
 
         {new Date().getFullYear()}
         {'.'}</div>
