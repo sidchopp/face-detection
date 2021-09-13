@@ -50,16 +50,16 @@ function FaceDetection() {
   const classes = useStyles();
 
   //states
-  const [inputLink, setInputLink] = useState('')
+  const [userInput, setUserInput] = useState('');
+  const [imageURL, setImageURL] = useState(" ");
 
   //Event Handlers
   function onInputChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
+    // To make the state value of userInput equals what we write in the input field
+    setUserInput(e.target.value)
   }
-
-
-
 
   const app = new Clarifai.App({
     apiKey: '7ab62c9b6f314d43bfd63c689ba5f4f7'
@@ -69,10 +69,13 @@ function FaceDetection() {
     e.preventDefault();
 
     console.log(' I m clicked');
+    //To make the state value of imageURL equals to the userInput(or what we write in the input field)
+    setImageURL(userInput)
+
 
     // face detect api
     app.models.predict(
-      Clarifai.COLOR_MODEL,
+      Clarifai.FACE_DETECT_MODEL,
       "https://samples.clarifai.com/face-det.jpg")
       .then(
         function (response) {
@@ -133,7 +136,10 @@ function FaceDetection() {
           </Grid>
         </form>
       </div>
-      <FaceRecognition />
+      {/* Component Import */}
+
+      <FaceRecognition imageURL={imageURL} />
+
     </Grid>
   )
 }

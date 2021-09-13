@@ -2,11 +2,11 @@ import React from 'react'
 
 import { Container } from '@material-ui/core';
 
-function FaceRecognition() {
+function FaceRecognition({ imageURL }) {
   return (
 
     <Container maxWidth="xl">
-      <img src="https://samples.clarifai.com/face-det.jpg" alt="image" />
+      <img src={imageURL} alt="image" />
     </Container>
   )
 }
