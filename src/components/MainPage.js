@@ -49,8 +49,6 @@ function MainPage() {
 
   const [route, setRoute] = useState('signin')
 
-
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
