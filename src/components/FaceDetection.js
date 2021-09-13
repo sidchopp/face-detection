@@ -58,6 +58,28 @@ function FaceDetection() {
   //states
   const [userInput, setUserInput] = useState('');
   const [imageURL, setImageURL] = useState(" ");
+  const [boundingBox, setBoundingBox] = useState({});
+
+  function faceLocation(data) {
+    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    // we are referencing the img attribute of id in the FaceRecognition component
+    const image = document.getElementById('inputImage');
+    const width = Number(image.width);
+    const height = Number(image.height);
+    console.log(width, height);
+    // this will return an OBJECT
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - (clarifaiFace.right_col * width),
+      bottomRow: height - (clarifaiFace.bottom_row * height)
+    }
+  }
+
+  function displayFaceBox(box) {
+    setBoundingBox(box)
+
+  }
 
   //Event Handlers
   function onInputChange(e) {
@@ -78,12 +100,12 @@ function FaceDetection() {
 
     // face detect api using FACE_DETECT_MODEL is predicting our userInput state value
     app.models.predict(Clarifai.FACE_DETECT_MODEL, userInput)
-      .then(
-        function (response) {
-          console.log("Response from API:", response);
-          // do something with response
-          console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
-        },
+      .then(function (response) {
+        //console.log("Response from API:", response);
+        // do something with response
+        console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+        faceLocation(response)
+      },
         function (err) {
           // there was an error
           console.log(err);

@@ -4,7 +4,7 @@ function FaceRecognition({ imageURL }) {
   return (
 
     <div  >
-      <img src={imageURL} alt="" width='320px' height='auto' />
+      <img id="inputImage" src={imageURL} alt="" width='320px' height='auto' />
     </div>
   )
 }

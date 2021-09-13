@@ -17,7 +17,7 @@ import HowToRegIcon from '@material-ui/icons/HowToReg';
 // Components
 
 import Footer from './Footer'
-import FaceDetection from './FaceDetection';
+
 
 //CSS
 
