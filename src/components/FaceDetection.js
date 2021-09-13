@@ -10,15 +10,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+
 import Clarifai from 'clarifai'
 
 // Components
 
-import Footer from './Footer'
 
+import FaceRecognition from './FaceRecognition';
 //CSS
 
 import '../App.css'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -131,6 +133,7 @@ function FaceDetection() {
           </Grid>
         </form>
       </div>
+      <FaceRecognition />
     </Grid>
   )
 }
