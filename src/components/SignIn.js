@@ -12,8 +12,10 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 //components
 
@@ -29,10 +31,10 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
 
       <div>
-        <Link color="actiony" href="https://github.com/sidchopp" target="_blank">
+        <Link color="primary" href="https://github.com/sidchopp" target="_blank">
           <GitHubIcon />
         </Link>{' '}
-        <Link color="actiony" href="https://www.linkedin.com/in/sidchopp/" target="_blank">
+        <Link color="primary" href="https://www.linkedin.com/in/sidchopp/" target="_blank">
           <LinkedInIcon />
         </Link>
       </div>
@@ -97,7 +99,7 @@ export default function SignIn() {
       </Grid>
       {/* For Right form */}
 
-      <Grid style={{ background: '#FFA630' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid style={{ background: '#ED820E ' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -128,32 +130,35 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              startIcon={<HowToRegIcon />}
+
             >
               Sign In
             </Button>
+
             <Grid container>
-              <Grid item xs>
+              {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
                 <Link href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
+            <Box mt={10}>
               <Copyright />
             </Box>
           </form>

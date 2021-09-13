@@ -19,7 +19,7 @@
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 600px) {
   /* For Mobile, no particles are there on the log in form */
   #tsparticles {
     width: 0;
