@@ -10,32 +10,18 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+//import GitHubIcon from '@material-ui/icons/GitHub';
+//import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import HowToRegIcon from '@material-ui/icons/HowToReg';
+
+// Components
+
+import Footer from './Footer'
 
 //CSS
 
 import '../App.css'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      <div>
-        <Link color="primary" href="https://github.com/sidchopp" target="_blank">
-          <GitHubIcon />
-        </Link>{' '}
-        <Link color="primary" href="https://www.linkedin.com/in/sidchopp/" target="_blank">
-          <LinkedInIcon />
-        </Link>
-      </div>
-      <div>
-        {'Sid © '}
-        {new Date().getFullYear()}
-        {'.'}</div>
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -122,7 +108,7 @@ function SignIn() {
             </Grid>
           </Grid>
           <Box mt={10}>
-            <Copyright />
+            <Footer />
           </Box>
         </form>
       </div>
