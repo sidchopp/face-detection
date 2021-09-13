@@ -10,6 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+import Clarifai from 'clarifai'
+
 // Components
 
 import Footer from './Footer'
@@ -54,10 +56,32 @@ function FaceDetection() {
     console.log(e.target.value);
   }
 
+
+
+
+  const app = new Clarifai.App({
+    apiKey: '7ab62c9b6f314d43bfd63c689ba5f4f7'
+  });
+
   function OnButtonSubmit(e) {
     e.preventDefault();
 
     console.log(' I m clicked');
+
+    // face detect api
+    app.models.predict(
+      Clarifai.COLOR_MODEL,
+      "https://samples.clarifai.com/face-det.jpg")
+      .then(
+        function (response) {
+          // do something with response
+          console.log(response);
+        },
+        function (err) {
+          // there was an error
+          console.log(err);
+        }
+      );
   }
 
   return (
