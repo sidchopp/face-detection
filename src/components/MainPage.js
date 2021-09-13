@@ -47,7 +47,7 @@ function MainPage() {
 
   // states
 
-  const [route, setRoute] = useState('signn')
+  const [route, setRoute] = useState('signin')
 
 
   return (

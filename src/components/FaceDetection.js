@@ -46,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Clarifai API
+const app = new Clarifai.App({
+  apiKey: '7ab62c9b6f314d43bfd63c689ba5f4f7'
+});
+
+
 function FaceDetection() {
   const classes = useStyles();
 
@@ -61,9 +67,6 @@ function FaceDetection() {
     setUserInput(e.target.value)
   }
 
-  const app = new Clarifai.App({
-    apiKey: '7ab62c9b6f314d43bfd63c689ba5f4f7'
-  });
 
   function OnButtonSubmit(e) {
     e.preventDefault();
@@ -73,14 +76,13 @@ function FaceDetection() {
     setImageURL(userInput)
 
 
-    // face detect api
-    app.models.predict(
-      Clarifai.FACE_DETECT_MODEL,
-      "https://samples.clarifai.com/face-det.jpg")
+    // face detect api using FACE_DETECT_MODEL is predicting our userInput state value
+    app.models.predict(Clarifai.FACE_DETECT_MODEL, userInput)
       .then(
         function (response) {
+          console.log("Response from API:", response);
           // do something with response
-          console.log(response);
+          console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
         },
         function (err) {
           // there was an error
@@ -90,7 +92,8 @@ function FaceDetection() {
   }
 
   return (
-    <Grid style={{ background: '#ED820E ' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+    //style={{ background: '#ED820E ' }}
+    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOpenIcon />
@@ -135,10 +138,11 @@ function FaceDetection() {
           <Grid container>
           </Grid>
         </form>
-      </div>
-      {/* Component Import */}
+        {/* Component Import */}
 
-      <FaceRecognition imageURL={imageURL} />
+        <FaceRecognition imageURL={imageURL} />
+      </div>
+
 
     </Grid>
   )

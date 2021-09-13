@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { Container } from '@material-ui/core';
-
 function FaceRecognition({ imageURL }) {
   return (
 
-    <Container maxWidth="xl">
-      <img src={imageURL} alt="image" />
-    </Container>
+    <div  >
+      <img src={imageURL} alt="" width='320px' height='auto' />
+    </div>
   )
 }
 
