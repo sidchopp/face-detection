@@ -21,6 +21,7 @@ import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 import MyParticles from './MyParticles';
 import SignIn from './SignIn';
+import FaceDetection from './FaceDetection'
 
 //CSS
 
@@ -56,6 +57,7 @@ export default function MainPage() {
       {/* For Right form */}
 
       <SignIn />
+
 
     </Grid>
   );
