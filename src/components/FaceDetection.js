@@ -8,6 +8,7 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 // Components
 
@@ -78,9 +79,9 @@ function FaceDetection() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
-            startIcon={<SearchIcon />}
+            startIcon={<ExitToAppIcon />}
           >
             Sign Out
           </Button>

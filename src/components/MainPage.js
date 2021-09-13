@@ -47,7 +47,7 @@ function MainPage() {
 
   // states
 
-  const [route, setRoute] = useState('signin')
+  const [route, setRoute] = useState('signIn')
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -59,7 +59,7 @@ function MainPage() {
       </Grid>
 
       {/* For Right form */}
-      {route === 'signin' ? <SignIn /> : <FaceDetection />}
+      {route === 'signIn' ? <SignIn /> : <FaceDetection />}
       {/* <SignIn /> */}
 
 

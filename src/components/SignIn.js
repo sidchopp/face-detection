@@ -23,7 +23,6 @@ import FaceDetection from './FaceDetection';
 
 import '../App.css'
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
