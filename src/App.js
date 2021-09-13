@@ -1,4 +1,4 @@
-import SignIn from './components/SignIn'
+import MainPage from './components/MainPage'
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <SignIn />
+      <MainPage />
     </div>
   );
 }
