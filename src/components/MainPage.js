@@ -47,7 +47,8 @@ function MainPage() {
 
   // states
 
-  const [route, setRoute] = useState('signIn')
+  const [route, setRoute] = useState('signn')
+
 
   return (
     <Grid container component="main" className={classes.root}>

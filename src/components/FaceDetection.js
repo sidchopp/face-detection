@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -44,6 +44,22 @@ const useStyles = makeStyles((theme) => ({
 
 function FaceDetection() {
   const classes = useStyles();
+
+  //states
+  const [inputLink, setInputLink] = useState('')
+
+  //Event Handlers
+  function onInputChange(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+  }
+
+  function OnButtonSubmit(e) {
+    e.preventDefault();
+
+    console.log(' I m clicked');
+  }
+
   return (
     <Grid style={{ background: '#ED820E ' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
@@ -59,11 +75,12 @@ function FaceDetection() {
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="url"
             label=" Enter the URL"
-            name="email"
-            autoComplete="email"
+            name="url"
+
             autoFocus
+            onChange={onInputChange}
           />
           <Button
             type="submit"
@@ -72,6 +89,7 @@ function FaceDetection() {
             color="primary"
             className={classes.submit}
             startIcon={<SearchIcon />}
+            onClick={OnButtonSubmit}
           >
             Detect
           </Button>
