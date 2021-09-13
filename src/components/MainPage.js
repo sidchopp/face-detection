@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -42,8 +42,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MainPage() {
+function MainPage() {
   const classes = useStyles();
+
+  // states
+
+  const [route, setRoute] = useState('signin')
+
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -55,10 +61,12 @@ export default function MainPage() {
       </Grid>
 
       {/* For Right form */}
-
-      <SignIn />
+      {route === 'signin' ? <SignIn /> : <FaceDetection />}
+      {/* <SignIn /> */}
 
 
     </Grid>
   );
 }
+
+export default MainPage;

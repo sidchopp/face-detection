@@ -2,17 +2,12 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
-//import GitHubIcon from '@material-ui/icons/GitHub';
-//import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import HowToRegIcon from '@material-ui/icons/HowToReg';
+import SearchIcon from '@material-ui/icons/Search';
 
 // Components
 
@@ -46,17 +41,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-function SignIn() {
+function FaceDetection() {
   const classes = useStyles();
   return (
     <Grid style={{ background: '#ED820E ' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockOpenIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          You are Signed In
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -65,7 +59,7 @@ function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label=" Enter the URL"
             name="email"
             autoComplete="email"
             autoFocus
@@ -76,9 +70,9 @@ function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            startIcon={<HowToRegIcon />}
+            startIcon={<SearchIcon />}
           >
-            Sign In
+            Detect
           </Button>
           <Grid container>
           </Grid>
@@ -88,4 +82,4 @@ function SignIn() {
   )
 }
 
-export default SignIn;
+export default FaceDetection;
