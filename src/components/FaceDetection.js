@@ -62,8 +62,10 @@ function FaceDetection() {
 
   function faceLocation(data) {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    console.log('from clarifai', clarifaiFace);
     // we are referencing the img attribute of id in the FaceRecognition component
     const image = document.getElementById('inputImage');
+    console.log(image);
     const width = Number(image.width);
     const height = Number(image.height);
     console.log(width, height);
@@ -74,9 +76,11 @@ function FaceDetection() {
       rightCol: width - (clarifaiFace.right_col * width),
       bottomRow: height - (clarifaiFace.bottom_row * height)
     }
+
   }
 
   function displayFaceBox(box) {
+    console.log(box);
     setBoundingBox(box)
 
   }
@@ -104,7 +108,7 @@ function FaceDetection() {
         //console.log("Response from API:", response);
         // do something with response
         console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
-        faceLocation(response)
+        displayFaceBox(faceLocation(response))
       },
         function (err) {
           // there was an error
@@ -162,7 +166,8 @@ function FaceDetection() {
         </form>
         {/* Component Import */}
 
-        <FaceRecognition imageURL={imageURL} />
+        <FaceRecognition boundingBox={boundingBox} imageURL={imageURL} />
+
       </div>
 
 
