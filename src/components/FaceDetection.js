@@ -59,6 +59,7 @@ function FaceDetection() {
   const [userInput, setUserInput] = useState('');
   const [imageURL, setImageURL] = useState(" ");
   const [boundingBox, setBoundingBox] = useState({});
+  const [errorMessage, setErrorMessage] = useState("")
 
   function faceLocation(data) {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -105,14 +106,17 @@ function FaceDetection() {
     // face detect api using FACE_DETECT_MODEL is predicting our userInput state value
     app.models.predict(Clarifai.FACE_DETECT_MODEL, userInput)
       .then(function (response) {
-        //console.log("Response from API:", response);
+        console.log("Response from API:", response);
         // do something with response
         console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
         displayFaceBox(faceLocation(response))
       },
         function (err) {
           // there was an error
-          console.log(err);
+          console.log(err.message);
+          const ErrorMessage = err.message;
+          setErrorMessage(`OOOPSS!!:  ${ErrorMessage}. Please Refresh the Page and try again. If the problem still persists,try with another picture.`);
+
         }
       );
   }
@@ -165,8 +169,9 @@ function FaceDetection() {
           </Grid>
         </form>
         {/* Component Import */}
+        {/* Conditional rendering of Image and Error Message */}
+        {errorMessage ? <div>{errorMessage}</div> : <div style={{ position: 'relative', left: "-150px" }} className={classes.submit}><FaceRecognition boundingBox={boundingBox} imageURL={imageURL} /></div>}
 
-        <div style={{ position: 'relative', left: "-150px" }} className={classes.submit}><FaceRecognition boundingBox={boundingBox} imageURL={imageURL} /></div>
       </div>
 
 
