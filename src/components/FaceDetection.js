@@ -151,7 +151,7 @@ function FaceDetection() {
           >
             Detect
           </Button>
-          <Button
+          {/* <Button
             type="submit"
             fullWidth
             variant="contained"
@@ -160,15 +160,15 @@ function FaceDetection() {
             startIcon={<ExitToAppIcon />}
           >
             Sign Out
-          </Button>
+          </Button> */}
           <Grid container>
           </Grid>
         </form>
         {/* Component Import */}
 
-        <FaceRecognition boundingBox={boundingBox} imageURL={imageURL} />
-
+        <div style={{ position: 'relative', left: "-150px" }} className={classes.submit}><FaceRecognition boundingBox={boundingBox} imageURL={imageURL} /></div>
       </div>
+
 
 
     </Grid>

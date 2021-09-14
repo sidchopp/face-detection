@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from '@material-ui/core';
 
 
 
@@ -7,8 +8,9 @@ import '../App.css'
 
 function FaceRecognition({ imageURL, boundingBox }) {
   return (
+    <div className='center' >
 
-    < div>
+      {/* By making this div's position absolute, we can get the box around the image OTHERWISE the box will be around the WHOLE page */}
       <div style={{ position: 'absolute' }}>
 
         <img id="inputImage" src={imageURL} alt="" width='320px' height='auto' />
@@ -19,6 +21,7 @@ function FaceRecognition({ imageURL, boundingBox }) {
         </div>
 
       </div>
+
 
 
     </div>
