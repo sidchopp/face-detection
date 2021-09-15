@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -36,7 +36,31 @@ function MainPage() {
 
   // states
 
-  const [route, setRoute] = useState('signin')
+  const [route, setRoute] = useState('signIn')
+  const [isSignedIn, setIsSignedIn] = useState(false)
+
+  ////// Fetching data from backend server
+
+  // const dataFromServer = async function () {
+  //   const response = await fetch("http://localhost:4000");
+  //   console.log(response);
+  //   const data = await response.json();
+  //   console.log(data);
+  // }
+  // useEffect(() => {
+  //   dataFromServer()
+  // }, [])
+
+  ////// Back end fetching above
+
+  function onRouteChange(route) {
+    if (route === 'signout') {
+      setIsSignedIn(false)
+    } else if (route === 'home') {
+      setIsSignedIn(true)
+    }
+    setRoute(route);
+  }
 
 
   return (
@@ -49,8 +73,9 @@ function MainPage() {
       </Grid>
 
       {/* For Right form */}
-      {route === 'signIn' ? <SignIn /> : <FaceDetection />}
-      {/* <SignIn /> */}
+      {route === 'signIn' ? <SignIn onRouteChange={onRouteChange} /> : <FaceDetection onRouteChange={onRouteChange} />}
+
+
 
 
     </Grid>

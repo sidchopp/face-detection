@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -47,8 +47,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function SignIn() {
+function SignIn({ onRouteChange }) {
   const classes = useStyles();
+
+  // States
+  const [signInEmail, setSignInEmail] = useState("");
+  const [signInPassword, setSignInPassword] = useState("");
+
+  // Event Handlers
+  // function onRouteChange(e) {
+  //   console.log(e.target.value);
+  // }
+
+  function onEmailChange(e) {
+    e.preventDefault()
+    setSignInEmail(e.target.value)
+  }
+
+  function onPasswordChange(e) {
+    e.preventDefault()
+    setSignInPassword(e.target.value)
+  }
+
+  function onSubmitSignIn() {
+    console.log(signInEmail, signInPassword);
+    onRouteChange('home')
+
+  }
+
+
+
   return (
     <Grid style={{ background: '#ED820E ' }} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
@@ -69,6 +97,7 @@ function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={onEmailChange}
           />
           <TextField
             variant="outlined"
@@ -80,18 +109,20 @@ function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={onPasswordChange}
           />
           {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
             startIcon={<HowToRegIcon />}
+            onClick={onSubmitSignIn}
           >
             Sign In
           </Button>

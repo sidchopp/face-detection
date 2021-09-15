@@ -61,19 +61,7 @@ function FaceDetection() {
   const [boundingBox, setBoundingBox] = useState({});
   const [errorMessage, setErrorMessage] = useState("")
 
-  ////// Fetching data from backend server
 
-  const dataFromServer = async function () {
-    const response = await fetch("http://localhost:4000");
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-  }
-  useEffect(() => {
-    dataFromServer()
-  }, [])
-
-  ////// Back end fetching above
 
   function faceLocation(data) {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -159,7 +147,7 @@ function FaceDetection() {
             onChange={onInputChange}
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
