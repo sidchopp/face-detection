@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -60,6 +60,20 @@ function FaceDetection() {
   const [imageURL, setImageURL] = useState(" ");
   const [boundingBox, setBoundingBox] = useState({});
   const [errorMessage, setErrorMessage] = useState("")
+
+  ////// Fetching data from backend server
+
+  const dataFromServer = async function () {
+    const response = await fetch("http://localhost:4000");
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+  }
+  useEffect(() => {
+    dataFromServer()
+  }, [])
+
+  ////// Back end fetching above
 
   function faceLocation(data) {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
